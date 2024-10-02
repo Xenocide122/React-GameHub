@@ -12,9 +12,14 @@ export interface Platform {
 const usePlatforms = () => {
   return useQuery<FetchResponse<Platform>, Error>({
     queryKey: ["platforms"],
-    queryFn: platformService.getAll,
+    queryFn: () => platformService.getAll(),
     staleTime: 24 * 60 * 60 * 1000, // 24hours
-    initialData: { count: platforms.length, results: platforms },
+    initialData: {
+      count: platforms.length,
+      results: platforms,
+      next: null,
+      previous: null,
+    },
   });
 };
 
