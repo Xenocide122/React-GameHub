@@ -1,5 +1,5 @@
 import usePlatforms from "./usePlatforms";
-import { Platform } from "./usePlatforms";
+import { Platform } from "../entities/Platform";
 import { useMemo } from "react";
 
 const usePlatform = (id?: number): Platform | undefined => {
