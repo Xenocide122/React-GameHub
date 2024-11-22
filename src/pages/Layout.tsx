@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import { useState } from "react";
+import { Box } from "@chakra-ui/react";
 
 export interface GameQuery {
   genreId?: number;
@@ -25,7 +26,9 @@ const Layout = () => {
     <>
       <NavBar onSearch={handleSearch} />
       {/* Pass gameQuery and setGameQuery to Outlet components */}
-      <Outlet context={{ gameQuery, setGameQuery }} />
+      <Box padding={2.5}>
+        <Outlet context={{ gameQuery, setGameQuery }} />
+      </Box>
     </>
   );
 };
